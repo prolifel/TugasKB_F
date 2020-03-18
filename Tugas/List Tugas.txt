@@ -1,0 +1,10 @@
+Tugas kb (code)
+. 8puzzle bfs (v)
+. 8puzzle dfs
+. 8puzzle ids
+. 8puzzle heuristik1
+. 8puzzle heuristik2
+. 8queen
+. 8queen hill climbing
+. Minimax tictactoe
+. 4queen csp

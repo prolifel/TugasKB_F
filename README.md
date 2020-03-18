@@ -19,6 +19,12 @@ Oleh
 
 ### 8 Puzzle
 #### BFS
+  > _Source Code main.py:_ [main](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/8%20Puzzle%20BFS/main.py)
+  
+  > _Source Code BFS.py:_ [BFS](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/8%20Puzzle%20BFS/BFS.py)
+  
+  > _Source Code Puzzle_class.py:_ [Puzzle_class](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/8%20Puzzle%20BFS/Puzzle_class.py)
+  
   BFS (_Breadth-First Search_) merupakan algoritma untuk _traversing_ atau _searching_ tree dan hal ini dimulai dari _root_.
   
   Ilustrasi nya adalah seperti berikut:
@@ -38,5 +44,7 @@ Oleh
   1. `generate_heuristic()` : Fungsi ini digunakan untuk menyelesaikan permasalahan ketika `step` yang ingin diambil terlalu banyak langkah dan diperlukan penyingkatan langkah dan memperpendek _time executed_, sehingga fungsi `generate_heuristic()` sangat diperlukan.
   2. `goal_test()` : Fungsi ini digunakan untuk memeriksa apakah _state-child_ sudah sama dengan `goal_state`. Jika berbeda, akan melakukan return value `false`.
   3. `find_legal_actions()` : Fungsi ini digunakan untuk melakukan filter arah mana yang bisa dipenuhi berdasarkan koordinat kotak 0. Jika koordinat 0 berada di pojok 8puzzle, maka ada arah yang tidak bisa dipenuhi. `i` menunjukkan kolom, sedangkan `j` menunjukkan baris.
+  4. `generate_child()` : Fungsi ini digunakan untuk membuat _child_ pada queue/tree yang ingin dicari. Kemudian mencari state baru ketika action yang ada valid (lewat fungsi `find_legal_actions()`).
+  5. `find_solution()` : Fungsi ini digunakan untuk menyimpan solusi dari semua _moves_ yang ada. Dimulai dari _parent_ hingga _leaf_ paling bawah.
 
-  Pada `BFS.py`, disana ada import dari `Puzzle_class` dan `queue`. Hal ini dilakukan karena semua method untuk melakukan `generate_child` dan memeriksa apakah _array_ dari 
+  Pada `BFS.py`, saya menggunakan berbagai method yang ada di `Puzzle_class.py` untuk bisa mencari solusi. Dimulai dengan membuat node, queue, dan array `explored` baru. Kemudian akan terus dilakukan perulangan hingga queue kosong, dan pada saat itu dimulai untuk membuat child satu-persatu secara rekursif. Setelah itu, langkah terakhir adalah melakukan pemeriksaan apakah string `goal_state == child_state`. Jika sama, maka sebuah array `solution` dari method `find_solution()` akan diprint, dan semua queue dilepas. 

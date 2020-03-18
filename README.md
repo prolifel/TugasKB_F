@@ -34,4 +34,9 @@ Oleh
   
   Untuk memudahkan perhitungan komputer, state akan disederhanakan menjadi sebuah _array_. Maka array _goal state_ adalah `[1, 2, 3, 4, 5, 6, 7, 8, 0]`. Oleh karena itu, `goal_state` pada class `Puzzle_class.py` berisi `[1, 2, 3, 4, 5, 6, 7, 8, 0]`.
   
+  Berikut ini adalah method yang terdapat dalam class `Puzzle_class.py` beserta penjelasan singkatnya:
+  1. `generate_heuristic()` : Fungsi ini digunakan untuk menyelesaikan permasalahan ketika `step` yang ingin diambil terlalu banyak langkah dan diperlukan penyingkatan langkah dan memperpendek _time executed_, sehingga fungsi `generate_heuristic()` sangat diperlukan.
+  2. `goal_test()` : Fungsi ini digunakan untuk memeriksa apakah _state-child_ sudah sama dengan `goal_state`. Jika berbeda, akan melakukan return value `false`.
+  3. `find_legal_actions()` : Fungsi ini digunakan untuk melakukan filter arah mana yang bisa dipenuhi berdasarkan koordinat kotak 0. Jika koordinat 0 berada di pojok 8puzzle, maka ada arah yang tidak bisa dipenuhi. `i` menunjukkan kolom, sedangkan `j` menunjukkan baris.
+
   Pada `BFS.py`, disana ada import dari `Puzzle_class` dan `queue`. Hal ini dilakukan karena semua method untuk melakukan `generate_child` dan memeriksa apakah _array_ dari 

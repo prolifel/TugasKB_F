@@ -19,4 +19,17 @@ Oleh
 
 ### 8 Puzzle
 #### BFS
-  BFS (_Breadth-First Search_) merupa
+  BFS (_Breadth-First Search_) merupakan algoritma untuk _traversing_ atau _searching_ tree dan hal ini dimulai dari _root_.
+  
+  Ilustrasi nya adalah seperti berikut:
+  ![Gambar BFS](https://upload.wikimedia.org/wikipedia/commons/4/46/Animated_BFS.gif)
+  
+  Pada aplikasi yang saya buat, saya menggunakan referensi dari [sini](https://github.com/NiloofarShahbaz/8-puzzle-search-implementation/tree/60776b1cb6e59c1510d6d1b0ae7d10ba6b3a8df2). Dimana memiliki 5 files python, yang terdiri dari Class `Astar_search`, `BFS_search`,`RBFS_search`, dan `puzzle`, dan satu program `main`.
+  
+  Pada kali ini yang saya gunakan hanya Class BFS, dengan sedikit modifikasi pada `main.py`. 
+  
+  Target state atau _goal state_ untuk 8 Puzzle ini adalah 
+  ![gambar state](https://miro.medium.com/max/351/1*IQ4oYMH3SCAriifZMdZA9w.png)
+  Untuk memudahkan perhitungan komputer, state akan disederhanakan menjadi sebuah _array_. Maka array _goal state_ adalah `[1, 2, 3, 4, 5, 6, 7, 8, 0]`. Oleh karena itu, `goal_state` pada class `Puzzle_class.py` berisi `[1, 2, 3, 4, 5, 6, 7, 8, 0]`.
+  
+  Pada `BFS.py`, disana ada import dari `Puzzle_class` dan `queue`. Hal ini dilakukan karena semua method untuk melakukan `generate_child` dan memeriksa apakah _array_ dari 

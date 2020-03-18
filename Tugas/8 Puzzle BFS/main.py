@@ -1,6 +1,6 @@
 from time import time
-from BFS_search import breadth_first_search
-from puzzle import Puzzle
+from BFS import breadth_first_search
+from Puzzle_class import Puzzle
 
 kondisi=[[1, 8, 2,
         0, 4, 3,

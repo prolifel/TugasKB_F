@@ -1,5 +1,5 @@
 from queue import Queue
-from puzzle import Puzzle
+from Puzzle_class import Puzzle
 
 
 def breadth_first_search(initial_state):

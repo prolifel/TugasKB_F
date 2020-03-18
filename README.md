@@ -29,6 +29,7 @@ Oleh
   Pada kali ini yang saya gunakan hanya Class BFS, dengan sedikit modifikasi pada `main.py`. 
   
   Target state atau _goal state_ untuk 8 Puzzle ini adalah 
+  
   ![gambar state](https://miro.medium.com/max/351/1*IQ4oYMH3SCAriifZMdZA9w.png)
   
   Untuk memudahkan perhitungan komputer, state akan disederhanakan menjadi sebuah _array_. Maka array _goal state_ adalah `[1, 2, 3, 4, 5, 6, 7, 8, 0]`. Oleh karena itu, `goal_state` pada class `Puzzle_class.py` berisi `[1, 2, 3, 4, 5, 6, 7, 8, 0]`.

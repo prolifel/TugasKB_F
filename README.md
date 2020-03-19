@@ -51,7 +51,13 @@ Oleh
 
 
 #### DFS
- 
+
+  > _Source Code driver.py:_ [driver](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/8%20Puzzle%20DFS/driver.py)
+  
+  > _Source Code state.py:_ [state](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/8%20Puzzle%20DFS/state.py)
+  
+  > _Hasil DFS: output.txt:_ [Puzzle_class](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/8%20Puzzle%20DFS/output.txt)
+  
  DFS (_Depth-First Search_) merupakan algoritma untuk _traversing_ atau _searching_ tree dan hal ini dimulai dari _root_. Dan aplikasinya adalah memeriksa secara dalam _path_ secara satu satu. Maka dari itu, DFS menggunakan sistem LIFO (Last In First Out) untuk bisa memeriksa tree/graph secara menyeluruh dan dalam.
  
  Ilustrasinya adalah sebagai berikut:

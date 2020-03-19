@@ -25,7 +25,7 @@ Oleh
   
   > _Source Code Puzzle_class.py:_ [Puzzle_class](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/8%20Puzzle%20BFS/Puzzle_class.py)
   
-  BFS (_Breadth-First Search_) merupakan algoritma untuk _traversing_ atau _searching_ tree dan hal ini dimulai dari _root_.
+  BFS (_Breadth-First Search_) merupakan algoritma untuk _traversing_ atau _searching_ tree dan hal ini dimulai dari _root_. Dan aplikasinya adalah memeriksa secara luas ke tiap kemungkinan yang ada pada kondisi sekarang. Maka dari itu, BFS menggunakan sistem FIFO (First In, First Out), sehingga pencarian hanya berdasarkan level per level ketika ada _path_ yang mungkin dilalui.
   
   Ilustrasi nya adalah seperti berikut:
   ![Gambar BFS](https://upload.wikimedia.org/wikipedia/commons/4/46/Animated_BFS.gif)
@@ -48,3 +48,33 @@ Oleh
   5. `find_solution()` : Fungsi ini digunakan untuk menyimpan solusi dari semua _moves_ yang ada. Dimulai dari _parent_ hingga _leaf_ paling bawah.
 
   Pada `BFS.py`, saya menggunakan berbagai method yang ada di `Puzzle_class.py` untuk bisa mencari solusi. Dimulai dengan membuat node, queue, dan array `explored` baru. Kemudian akan terus dilakukan perulangan hingga queue kosong, dan pada saat itu dimulai untuk membuat child satu-persatu secara rekursif. Setelah itu, langkah terakhir adalah melakukan pemeriksaan apakah string `goal_state == child_state`. Jika sama, maka sebuah array `solution` dari method `find_solution()` akan diprint, dan semua queue dilepas. 
+
+
+#### DFS
+ 
+ DFS (_Depth-First Search_) merupakan algoritma untuk _traversing_ atau _searching_ tree dan hal ini dimulai dari _root_. Dan aplikasinya adalah memeriksa secara dalam _path_ secara satu satu. Maka dari itu, DFS menggunakan sistem LIFO (Last In First Out) untuk bisa memeriksa tree/graph secara menyeluruh dan dalam.
+ 
+ Ilustrasinya adalah sebagai berikut:
+ ![dfs_illu](https://codeforces.com/predownloaded/8d/be/8dbe5d89e58b67f3d8e4d8e0e8eb3358ba921b28.png)
+ 
+ Untuk 8 Puzzle solver dengan algoritma DFS, saya menggunakan referensi dari [sini](https://github.com/speix/8-puzzle-solver) dengan sedikit modifikasi karena saya tidak memerlukan algoritma BFS, AST, dan IDA.
+ 
+ Hampir sama dengan BFS, Target state atau _goal state_ untuk 8 Puzzle ini adalah 
+  
+  ![gambar state](https://miro.medium.com/max/351/1*IQ4oYMH3SCAriifZMdZA9w.png)
+  
+  Berikut ini adalah penjelasan dari tiap fungsi yang terdapat dalam `driver.py`:
+  1. `dfs()` : Fungsi ini merupakan implementasi dari algoritma DFS sendiri, dengan menggunakan _stack_ didalamnya dan menandai node yang telah dikunjungi dengan variabel `explored`. 
+  2. `expand()` : Fungsi ini digunakan untuk menjumlahkan berapa banyak nodes yang telah diperluas (_nodes expanded_). Hasil dari _nodes expanded_ akan diprint oleh fungsi `export()`.
+  3. `move()` : Fungsi ini digunakan untuk memindahkan posisi dari angka di board, dengan movement _Up_, _Down_, _Left_, _Right_ dan juga untuk melakukan update state baru ketika sudah melakukan giliran.
+  4. `backtrace()` : Fungsi ini dijalankan ketika algoritma DFS telah selesai. Tujuannya adalah mengidentifikasi moves apa saja yang telah dilakukan, menamainya, kemudian memasukkan list moves tadi untuk kemudian dilakukan print oleh fungsi `export()`.
+  5. `export()` : Fungsi ini untuk membuat file `output.txt`, yang berisi "Jalan/path", "Nodes yang diexpand", dan "Waktu Algoritma berjalan".
+  6. `read()` : Fungsi ini digunakan untuk memisah state awal (pada argumen saat menjalankan program), menyimpan state awal di `initial_state`, mencari panjang board, dan mencari ukuran board.
+  7. `main()` : Fungsi ini digunakan untuk run aplikasi dari awal dengan langkah-langkah sebagai berikut:
+    a. Memisahkan argumen `algoritm` yang ingin dipakai dan `board` yang ingin diproses.
+    b. Menghitung waktu ketika program dimulai
+    c. Memproses `initial_state` dengan algoritma yang dipakai
+    d. Menghitung waktu ketika fungsi `dfs()` selesai memproses `initial_state`
+    3. Menjalankan fungsi `export()` dengan argumen hasil fungsi `dfs()` dan selisih waktu fungsi `dfs()` berjalan.
+  
+  File `state.py` digunakan sebagai class `State` untuk object yang akan digunakan pada Stack yang digunakan oleh algoritma DFS. 

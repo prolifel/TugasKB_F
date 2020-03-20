@@ -64,8 +64,8 @@ def ids():
       if level<=limit:
         print(str(puzzle[1])+" --> "+str(puzzle[0]))
         if(puzzle[0]==out):
-          print("Found")
-          print('Path cost='+str(level))
+          print("Solusi ditemukan")
+          print('pada level ke-'+str(level))
           flag=True
           return
         else:
@@ -108,6 +108,6 @@ ids()
 t1 = time() - t0
 
 if flag==False:
-  print('path not found')
+  print('8 Puzzle tidak dapat diselesaikan')
 
 print('Running time:', t1)

@@ -84,3 +84,21 @@ Oleh
     3. Menjalankan fungsi `export()` dengan argumen hasil fungsi `dfs()` dan selisih waktu fungsi `dfs()` berjalan.
   
   File `state.py` digunakan sebagai class `State` untuk object yang akan digunakan pada Stack yang digunakan oleh algoritma DFS. 
+  
+  
+#### IDS
+
+  > _Source Code IDS.py:_ [IDS](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/8%20Puzzle%20IDS/IDS.py)
+
+ IDS (_Iterative Deepening Search_) merupakan algoritma lanjutan dari DFS dengan menerapkan konsep yang sama dengan DFS. Tetapi, _improvement_-nya adalah IDS tidak mencari semua jalur seperti DFS, tetapi dicari secara _iterative_ berdasarkan level.
+ 
+ Ilustrasinya adalah sebagai berikut:
+ ![illu_IDS](https://camo.githubusercontent.com/94d997ac6ef676d3c71d7137c6958086465e22e7/687474703a2f2f7777772e686f77326578616d706c65732e636f6d2f6172746966696369616c2d696e74656c6c6967656e63652f696d616765732f4974657261746976652d44657074682d46697273742d5365617263682e676966)
+ 
+ Saya mendapatkan program 8 puzzle solver dengan algoritma IDS dari [sini](https://repl.it/repls/HuskyEnviousTasks) dengan sedikit modifikasi penambahan _running time_.
+ 
+ Berikut ini adalah penjelasan dari tiap fungsi yang terdapat dalam `IDS.py`:
+ 1. `move()` : Fungsi ini digunakan untuk memindahkan angka di board sesuai dengan algoritma IDS.
+ 2. `ids()` : Fungsi ini sebagai implementasi algoritma IDS dengan menggunakan stack, dan diperiksa tiap level hingga bertemu `flag = true`.
+ 
+ 

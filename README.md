@@ -133,7 +133,7 @@ Oleh
 
 #### Hill Climbing
   **Note**:
-  Disini saya memakai kode Sabrina Jiang dengan modifikasi bahasa dan penambahan keterangan. Kode tersebut bisa didapatkan [disini](https://github.com/Sabrina-Jiang/Hill-Climbing)
+  Disini saya memakai kode Sabrina Jiang tanpa modifikasi. Kode tersebut bisa didapatkan [disini](https://github.com/Sabrina-Jiang/Hill-Climbing)
   
   Hill Climbing merupakan algoritma pencarian heuristik dengan optimisasi secara matematis. Disini, algoritma Hill Climbing tidak mencari solusi paling optimal, tetapi hanya mencari solusi yang masuk akal dari segi waktu. Pencarian heuristik adalah fungsi yang akan mengurutkan segala kemungkinan yang masuk akal dengan menggunakan _tree_ berdasarkan informasi yang ada. Hal tersebut membantu algoritma ini untuk memilih rute terbaik berdasarkan rute yang dapat dilalui.
   

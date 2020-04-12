@@ -106,7 +106,7 @@ Oleh
 
 8 Queens adalah permasalahan bagaimna bisa menempatkan 8 Ratu didalam kotak catur 8x8 dengan kondisi tidak ada salah satu dari Ratu tersebut yang saling menyerang, baik secara baris, kolom, maupun diagonal. Secara umum, 8 Queens ini adalah permasalahan N Queens dengan menempatkan N Ratu ke dalam NxN kotak catur.
 
-![kondisi]()
+![kondisi](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/Assets/8q-bfs/Artboard%201-%204.jpg?raw=true)
 
 #### Uninformed Search
 
@@ -125,7 +125,7 @@ Oleh
   > It is known that there are altogether 92 solutions. and one example is
   
   Hal ini sesuai dengan hasil program saya, yaitu:
-  ![hasil_8q_bfs]()
+  ![hasil_8q_bfs](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/Assets/8q-bfs/Annotation%202020-04-12%20122128.png?raw=true)
   
 
 #### Hill Climbing

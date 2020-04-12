@@ -210,3 +210,23 @@ Oleh
   ![minimaxsc2](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/Assets/tictactoe/board.PNG?raw=true)
   
   Game dimainkan secara terus-menerus dengan memanggil secara bergantian fungsi `agent()` dan `human()` hingga _return value_ `game_over()` bernilai _false_. Game akan berakhir dengan memberikan _output_ **"YOU WIN!"** apabila user menang, **"You muppet, you've lost :("** apabila user kalah, atau **"DRAW!"** apabila game berakhir seri.
+
+----------------------------------------------------------------
+### 4 Queen CSP
+
+4 Queens memiliki tipe permasalahan yang sama dengan 8 Queens, dimana ada 4 Ratu dalam sebuah papan catur 4x4 dengan kondisi keempat Ratu tidak boleh saling menyerang (secara horizontal, vertikal, maupun terdekat).
+
+Berdasarkan On-Line Encyclopedia of Integer Sequences (OEIS) ([Sumber](https://oeis.org/A000170)), solusi yang memungkinkan bagi 4 Queens, adalah 2 kondisi, yaitu
+
+![4q_sc](https://sadakurapati.files.wordpress.com/2013/12/n-queens1.png?w=584)
+
+Penyelesaian 4 Queens dapat dilakukan dengan algoritma _Constraint Satisfaction Problems_ (CSP). CSP merupakan algoritma pendekatan untuk menyelesaikan suatu masalah dengan menemukan keadaan atau objek yang memenuhi sejumlah persyaratan atau kriteria. CSP merupakan algoritma _backtracking_ yang dioptimasi, sehingga _running time_ program lebih cepat dan memori yang digunakan lebih sedikit. Perbedaan CSP dengan _backtracking_ adalah pendefinisian _constraints_ dengan jelas. 
+
+Untuk bisa menjalankan algoritma CSP, dibutuhkan tiga hal berikut:
+1. Variabel: Sebuah permasalahan yang perlu untuk ditentukan nilainya atau _value_-nya
+2. Domains: Berisi nilai-nilai (_values_) yang dapat ditetapkan ke variabel secara spesifik.
+3. Constraints: _Constraints_ akan menandakan nilai apa saja yang terdapat dalam domain yang dapat digunakan pada kondisi yang ada.
+
+Algoritma CSP biasa menggunakan _flowchart_ untuk dapat mengerti langkah-langkah lebih detil. Berikut ini adalah contoh _flowchart_ yang digunakan untuk mengelola jadwal kuliah:
+
+![flowchart-csp]()

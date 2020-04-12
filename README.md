@@ -28,6 +28,7 @@ Oleh
   BFS (_Breadth-First Search_) merupakan algoritma untuk _traversing_ atau _searching_ tree dan hal ini dimulai dari _root_. Dan aplikasinya adalah memeriksa secara luas ke tiap kemungkinan yang ada pada kondisi sekarang. Maka dari itu, BFS menggunakan sistem FIFO (First In, First Out), sehingga pencarian hanya berdasarkan level per level ketika ada _path_ yang mungkin dilalui.
   
   Ilustrasi nya adalah seperti berikut:
+  
   ![Gambar BFS](https://upload.wikimedia.org/wikipedia/commons/4/46/Animated_BFS.gif)
   
   Pada aplikasi yang saya buat, saya menggunakan referensi dari [sini](https://github.com/NiloofarShahbaz/8-puzzle-search-implementation/tree/60776b1cb6e59c1510d6d1b0ae7d10ba6b3a8df2). Dimana memiliki 5 files python, yang terdiri dari Class `Astar_search`, `BFS_search`,`RBFS_search`, dan `puzzle`, dan satu program `main`.
@@ -61,6 +62,7 @@ Oleh
  DFS (_Depth-First Search_) merupakan algoritma untuk _traversing_ atau _searching_ tree dan hal ini dimulai dari _root_. Dan aplikasinya adalah memeriksa secara dalam _path_ secara satu satu. Maka dari itu, DFS menggunakan sistem LIFO (Last In First Out) untuk bisa memeriksa tree/graph secara menyeluruh dan dalam.
  
  Ilustrasinya adalah sebagai berikut:
+ 
  ![dfs_illu](https://codeforces.com/predownloaded/8d/be/8dbe5d89e58b67f3d8e4d8e0e8eb3358ba921b28.png)
  
  Untuk 8 Puzzle solver dengan algoritma DFS, saya menggunakan referensi dari [sini](https://github.com/speix/8-puzzle-solver) dengan sedikit modifikasi karena saya tidak memerlukan algoritma BFS, AST, dan IDA.

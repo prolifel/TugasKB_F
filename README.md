@@ -1,4 +1,4 @@
-# Tugas KB Kelas F
+# Tugas Kecerdasan Buatan Kelas F
 Oleh
  _Clement Prolifel Priyatama (0511184000013)_
 

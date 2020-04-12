@@ -125,6 +125,7 @@ Oleh
   > It is known that there are altogether 92 solutions. and one example is
   
   Hal ini sesuai dengan hasil program saya, yaitu:
+  
   ![hasil_8q_bfs](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/Assets/8q-bfs/Annotation%202020-04-12%20122128.png?raw=true)
   
 

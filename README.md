@@ -167,4 +167,42 @@ Oleh
   
   ![minimax](https://www.researchgate.net/publication/262672371/figure/fig1/AS:393455625883662@1470818539933/Game-tree-for-Tic-Tac-Toe-game-using-MiniMax-algorithm.png)
   
+  Berikut ini pseudo code dari algorima Minimax:
+  ```
+  function minimax(node, depth, maximizingPlayer) is
+    if depth = 0 or node is a terminal node then
+        return the heuristic value of node
+    if maximizingPlayer then
+        value := −∞ 
+        for each child of node do
+            value := max(value, minimax(child, depth − 1, FALSE))
+        return value
+    else (* minimizing player *)
+        value := +∞
+        for each child of node do
+            value := min(value, minimax(child, depth − 1, TRUE))
+        return value
+  ```
   
+  Berikut ini penjelasan fungsi-fungsi pada file `algorithms.py`:
+  1. `eval()`: Fungsi ini digunakan sebagai _flag_ apabila _Agent_ atau _Human_ yang menang atau tidak keduanya.
+  2. `winner()`: Fungsi ini menyediakan _state_ menang. Selain itu, fungsi ini juga digunakan untuk memeriksa apakah player menang game.
+  3. `game_over()`: Fungsi `game_over()` digunakan untuk memeriksa siapakah yang menang (_Agent_ atau _Human_) dengan memanggil fungsi `winener()` dengan _state_ sekarang.
+  4. `blank_tiles()`: Dalam permainan Tictactoe, pasti terdapat kotak yang kosong. Oleh karena itu, fungsi ini digunakan untuk memeriksa apa saja kotak yang kosong. Kemudian, dilakukan _return_ list kotak yang kosong tadi.
+  5. `valid_action()`: Fungsi ini digunakan untuk mencegah terjadinya input dobel pada satu kotak, dan memberikan _flag_ apabila kotak yang dituju dapat diisi 'X' atau 'O'.
+  6. `apply_action()`: Hasil _flag_ dari fungsi `valid_action()` digunakan untuk mengisi 'X' atau 'O' pada kotak. 
+  7. `minimax()`: Implementasi dari pseudo code Minimax diatas diterapkan dalam fungsi ini.
+  8. `print_board()`: Fungsi ini berfungsi untuk melakukan _print_ kondisi board sekarang.
+  9. `agent()`: _Agent_ adalah lawan main dari _Human_. Fungsi ini berisi perintah untuk memeriksa apakah game telah selesai (hal ini terjadi apabila _depth_ == 0 atau _flag_ bernilai _true_ setelah menjalankan fungsi `game_over()`), _print_ kondisi board sekarang, input langkah berikutnya dari _Agent_, dan untuk mengisi 'X' atau 'O' dengan memanggil `apply_action()` dengan argumen dari hasil pemanggilan fungsi `minimax()`.
+  10. `human()`: Fungsi ini mirip dengan `agent()`, hanya saja berbeda di penggunaan `apply_action()`-nya. Setelah user memasukkan nomor kotak, nomor tersebut akan diperiksa dengan mencocokkan dengan _global variable_ ACTIONS untuk kemudian menghasilkan koordinat pada board.
+  
+  `algorithms.py` juga memiliki variabel global, antara lain:
+  1. BOARD: Mendefinisikan kondisi board awal, yang kemudian diubah-ubah berdasarkan perintah pada fungsi-fungsi diatas.
+  2. ACTIONS: Mendefinisikan koordinat pada board dalam bentuk array.
+  3. HUMAN: Sebagai flag untuk menandai user (-1).
+  4. AGENT: Sebagai flag untuk menandai _agent_ (-1).
+  5. NONE: Menandakan 0 atau tidak terjadi apa-apa.
+  6. BLANK: Spasi
+  7. LINE: Batas tiap baris saat menggambar board.
+  
+  Pada file `main.py`, pada saat awal game berjalan, user diminta mau bermain sebagai 'X' atau 'O'. Apabila user memilih 'X', maka user bermain pertama, begitu pula sebaliknya. Game dimainkan secara terus-menerus dengan memanggil secara bergantian fungsi `agent()` dan `human()` hingga _return value_ `game_over()` bernilai _false_. Game akan berakhir dengan memberikan _output_ **"YOU WIN!"** apabila user menang, **"You muppet, you've lost :("** apabila user kalah, atau **"DRAW!"** apabila game berakhir seri.

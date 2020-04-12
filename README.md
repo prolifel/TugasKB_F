@@ -205,4 +205,8 @@ Oleh
   6. BLANK: Spasi
   7. LINE: Batas tiap baris saat menggambar board.
   
-  Pada file `main.py`, pada saat awal game berjalan, user diminta mau bermain sebagai 'X' atau 'O'. Apabila user memilih 'X', maka user bermain pertama, begitu pula sebaliknya. Game dimainkan secara terus-menerus dengan memanggil secara bergantian fungsi `agent()` dan `human()` hingga _return value_ `game_over()` bernilai _false_. Game akan berakhir dengan memberikan _output_ **"YOU WIN!"** apabila user menang, **"You muppet, you've lost :("** apabila user kalah, atau **"DRAW!"** apabila game berakhir seri.
+  Pada file `main.py`, pada saat awal game berjalan, user diminta mau bermain sebagai 'X' atau 'O'. Apabila user memilih 'X', maka user bermain pertama, begitu pula sebaliknya. Kemudian, user akan diminta untuk memasukkan posisi _gaco-an_-nya ke dalam board dengan urutan sebagai berikut:
+  
+  ![minimaxsc2](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/Assets/tictactoe/board.PNG?raw=true)
+  
+  Game dimainkan secara terus-menerus dengan memanggil secara bergantian fungsi `agent()` dan `human()` hingga _return value_ `game_over()` bernilai _false_. Game akan berakhir dengan memberikan _output_ **"YOU WIN!"** apabila user menang, **"You muppet, you've lost :("** apabila user kalah, atau **"DRAW!"** apabila game berakhir seri.

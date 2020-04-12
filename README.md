@@ -11,7 +11,7 @@ Oleh
   * [Heuristik 1](#Heuristik-1)
   * [Heuristik 2](#Heuristik-2)
 * [8 Queen](#8-Queen)
-  * [Normal](#Normal)
+  * [Uninformed Search](#Uninformed-Search)
   * [Hill Climbing](#Hill-Climbing)
 * [Minimax Tictactoe](#Minimax-Tictactoe)
 * [4 Queen CSP](#4-Queen-CSP)
@@ -101,4 +101,31 @@ Oleh
  1. `move()` : Fungsi ini digunakan untuk memindahkan angka di board sesuai dengan algoritma IDS.
  2. `ids()` : Fungsi ini sebagai implementasi algoritma IDS dengan menggunakan stack, dan diperiksa tiap level hingga bertemu `flag = true`.
  
- 
+----------------------------------------------------------------
+### 8 Queens
+
+8 Queens adalah permasalahan bagaimna bisa menempatkan 8 Ratu didalam kotak catur 8x8 dengan kondisi tidak ada salah satu dari Ratu tersebut yang saling menyerang, baik secara baris, kolom, maupun diagonal. Secara umum, 8 Queens ini adalah permasalahan N Queens dengan menempatkan N Ratu ke dalam NxN kotak catur.
+
+![kondisi]()
+
+#### Uninformed Search
+
+  > _Source Code main.py:_ [main](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/8%20Queens%20BFS/main.py)
+  > _Source Code board.py:_ [board](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/8%20Queens%20BFS/board.py)
+  
+  Pada permasalahan 8 Queens dengan metode Uninformed Search, saya menggunakan algoritma _Breadth-First Search_ (BFS).
+  
+  Berikut ini penjelasan mengenai setiap fungsi pada `board.py`:
+  1. `__init__()` : Sebagai _constructor class_ `board` yang berisi `size` / ukuran dari board
+  2. `solve_bfs()` : Digunakan sebagai implementasi dari algoritma BFS.
+  3. `conflict()` : Digunakan apabila salah satu Ratu saling menyerang salah satu Ratu yang lain.
+  4. `print()` : Digunakan sebagai _output_ board 8 Queens.
+  
+  Berdasarkan artikel [ini](https://doi.org/10.1145/185009.185019), dapat diketahui bahwa:
+  > It is known that there are altogether 92 solutions. and one example is
+  
+  Hal ini sesuai dengan hasil program saya, yaitu:
+  ![hasil_8q_bfs]()
+  
+
+#### Hill Climbing

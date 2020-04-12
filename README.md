@@ -132,3 +132,23 @@ Oleh
   
 
 #### Hill Climbing
+  **Note**:
+  Disini saya memakai kode Sabrina Jiang dengan modifikasi bahasa dan penambahan keterangan. Kode tersebut bisa didapatkan [disini](https://github.com/Sabrina-Jiang/Hill-Climbing)
+  
+  Hill Climbing merupakan algoritma pencarian heuristik dengan optimisasi secara matematis. Disini, algoritma Hill Climbing tidak mencari solusi paling optimal, tetapi hanya mencari solusi yang masuk akal dari segi waktu. Pencarian heuristik adalah fungsi yang akan mengurutkan segala kemungkinan yang masuk akal dengan menggunakan _tree_ berdasarkan informasi yang ada. Hal tersebut membantu algoritma ini untuk memilih rute terbaik berdasarkan rute yang dapat dilalui.
+  
+  Berikut ini adalah ilustrasi dari algoritma Hill Climbing:
+  
+  ![HC](https://fileservice.slidewiki.org/media/images/25/4318.PNG)
+  
+  Dalam sebuah langkah-langkah sederhana, saya dapat mengartikan algoritma Hill Climbing sebagai berikut:
+  1. Buat tree berdasarkan urutan random
+  2. Tiap elemen pada array ditukar, kemudian dicari cost dari tiap kemungkinan
+  3. Kemudian, _cost_ yang paling kecil dari cabang paling kiri, menjadi induk baru
+  
+  Dalam `hill_climbing.py` terdapat beberapa fungsi, yang terdiri dari:
+  1. `get_num_of_conflict()` : Fungsi ini digunakan untuk menghitung konflik dari setiap Ratu dari kondisi papan catur sekarang yang kemudian menjadi _return value_ dari fungsi ini.
+  2. `hill_climbing_first_choice()` : Fungsi ini sebagai implementasi dari langkah ketiga diatasm yaitu menemukan _cost_ yang paling kecil dari semua status yang ada.
+  3. `prettyprint()` : Fungsi ini digunakan untuk print board. 'X' berarti Ratu dan '.' berarti tidak ada ratu.
+  4. `Queens()` :  Fungsi digunakan sebagai prosedur utama dari algoritma Hill Climbing, yaitu menghitung konflik antar Ratu, dan jika konflik tersebut sama dengan nol, maka posisi/status Ratu tersebut sukses. Fungsi ini juga digunakan untuk menghitung _moving cost_ dari algoritma Hill Climbing, langkah yang akan diambil, dan waktu random start. Fungsi ini akan direkursif hingga dalam posisi/status sekarang sama dengan nol. _Return value_ dari fungsi ini adalah posisi/status sekarang.
+  

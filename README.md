@@ -151,4 +151,20 @@ Oleh
   2. `hill_climbing_first_choice()` : Fungsi ini sebagai implementasi dari langkah ketiga diatasm yaitu menemukan _cost_ yang paling kecil dari semua status yang ada.
   3. `prettyprint()` : Fungsi ini digunakan untuk print board. 'X' berarti Ratu dan '.' berarti tidak ada ratu.
   4. `Queens()` :  Fungsi digunakan sebagai prosedur utama dari algoritma Hill Climbing, yaitu menghitung konflik antar Ratu, dan jika konflik tersebut sama dengan nol, maka posisi/status Ratu tersebut sukses. Fungsi ini juga digunakan untuk menghitung _moving cost_ dari algoritma Hill Climbing, langkah yang akan diambil, dan waktu random start. Fungsi ini akan direkursif hingga dalam posisi/status sekarang sama dengan nol. _Return value_ dari fungsi ini adalah posisi/status sekarang.
+
+----------------------------------------------------------------
+### Minimax Tictactoe
+ **Note**:
+  Disini saya memakai kode Akira Wang tanpa modifikasi. Kode tersebut bisa didapatkan [disini](https://github.com/akiratwang/TicTacToe-AI-agent)
+  
+  Minimax merupakan algoritma _backtracking_ untuk memtukan sebuah keputusan terbaik untuk seorang _player_, dengan asumsi bahwa lawan main juga bermain dengan terbaik. Biasanya Minimax digunakan pada game yang pemainnya ada 2, seperti Tic Tac Toe, Backgammon, Mancala, Catur dll.
+  
+  Dalam Minimax, ada dua _player_ yang terdiri dari:
+  1. Maximizer, yaitu yang mencoba mendapatkan skor tertinggi sebisa mungkin
+  2. Minimizer, yaitu yang mencoba mendapatkan skor terendah sebisa mungkin
+  
+  Hal ini dapat diilustrasikan sebagai berikut:
+  
+  ![minimax](https://www.researchgate.net/publication/262672371/figure/fig1/AS:393455625883662@1470818539933/Game-tree-for-Tic-Tac-Toe-game-using-MiniMax-algorithm.png)
+  
   

@@ -230,3 +230,40 @@ Untuk bisa menjalankan algoritma CSP, dibutuhkan tiga hal berikut:
 Algoritma CSP biasa menggunakan _flowchart_ untuk dapat mengerti langkah-langkah lebih detil. Berikut ini adalah contoh _flowchart_ yang digunakan untuk mengelola jadwal kuliah:
 
 ![flowchart-csp]()
+
+ **Note**:
+  Disini saya memakai kode Theodore Tan tanpa modifikasi. Kode tersebut bisa didapatkan [disini](https://github.com/theodoretan/n-queens-CSP)
+  
+  
+  Pada file `function.py`, terdapat beberapa kelas, yaitu:
+  1. Board: Kelas ini digunakan agar sebuah objek _board_ dapat diketahui jejaknya apabila terdapat konflik antar Ratu dan juga digunakan untuk melakukan update _constraints_. 
+     Kelas Board berisi beberapa fungsi, antara lain:
+     a. `set_queen()`: Digunakan untuk mengatur sebuah Ratu di dalam board. Fungsi ini memakai beberapa input, antara lain koordinat dari board, dan _constraints_ setiap Ratu.
+     b. `remove_queen()`: Berfungsi untuk menghapus sebuah Ratu di dalam board. Input pada fungsi ini sama dengan input pada `set_queen()`.
+     c. `get_num_conflicts()`: Untuk mengambil konflik pada tiap koordinat dari papan catur.
+  2. CSP: Kelas ini berfungsi agar sebuah objek CSP dapat menyimpan variabel, domains, dan constraints.
+  3. Colours: Kelas ini berfungsi untuk memberikan warna pada terminal saat aplikasi dijalankan.
+  
+  Fungsi-fungsi yang terdapat pada file `function.py` terdiri dari:
+  1. `min_conflicts()`: Fungsi ini sebagai implementasi dari algoritma Minimal, dengan input berupa komponen-komponen CSP, jumlah Ratu, Board, jumlah langkah maksimal untuk menyerah. Fungsi ini memiliki _return value_ berupa solusi atau sebuah _flag_ (False).
+  2. `get_least_conflicts_y()`: Untuk mengambil posisi konflik paling sedikit pada setiap kolom. Fungsi ini mengharuskan input koordinat x pada board, jumlah Ratu, daftar kemungkinan gerak, dan board itu sendiri. _Return value_-nya adalah koordinat y pada board.
+  3. `def conflicts()`: Digunakan untuk mengambil posisi dengan konflik paling sedikit pada setiap kolom. Input untuk fungsi ini terdiri dari: variabel dengan _value_ koordinat x pada board atau posisi x Ratu, koordinat y sekarang, jumlah Ratu, komponen CSP, daftar gerakan yang tidak boleh pada setiap kolom, dan board itu sendiri. Fungsi ini akan mengembalikan nilai koordinat y pada board.
+  4. `create_board()`: Fungsi ini untuk membuat papan catur.
+  5. `print_board()`: Fungsi ini digunakan untuk _print_ papan catur.
+  
+  Sedangkan pada file `main.py` terdapat beberapa langkah-langkah program ini, antara lain:
+  1. Program memungkinkan untuk memasukkan jumlah Ratu. Selain itu, program juga memberikan dua mode berjalannya program yaitu, _verbose_ dan _all_. Mode _verbose_ hanya akan menunjukkan hasil akhir program, sedangkan mode _all_ berfungsi untuk memberikan kondisi awal papan catur dan kondisi akhir papan catur.
+  2. Membuat object Board, variabel yang berisi daftar koordinat x dan y, dan mendefinisikan _constraints_ pada setiap Ratu.
+  3. Mencari posisi Ratu secara acak, kemudian menginisialisasi daftar domains.
+  4. Setelah itu, menempatkan semua Ratu pada papan catur (board) dengan terus menerus melakukan update pada _constraints_.
+  5. Kemudiam, menjalankan fungsi CSP.
+  6. Apabila jumlah Ratu kurang atau sama dengan 15 dan program berjalan di mode _all_, program akan mencetak kondisi awal papan catur.
+  7. Kemudian akan program melakukan pemeriksaan apabila fungsi `min_conflicts()` sudah berjalan dengan baik. Apabila algoritma CSP telah mencapai batas rekursif sebesar 100, maka program mencetak **'Increase Max Steps to solve.'** dan program berhenti. Sebaliknya, program akan mencetak waktu algoritma tersebut berjalan, dan akan mengeluarkan sebuah file `output.txt` apabila jumlah Ratu sangat besar atau mencetak kondisi papan catur akhir.
+  
+  Saya hanya akan mencoba program tersebut pada jumlah Ratu sebanyak 4. Berikut ini hasil program tersebut:
+  
+  ![hasil-4q]()
+  
+  Solusi yang didapatkan oleh program tersebut sama dengan solusi 2 berdasarkan On-Line Encyclopedia of Integer Sequences (OEIS). Hal ini dapat diperiksa pada gambar pada teori Minimax.
+  
+----------------------------------------------------------------

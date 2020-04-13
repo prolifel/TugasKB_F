@@ -229,7 +229,7 @@ Untuk bisa menjalankan algoritma CSP, dibutuhkan tiga hal berikut:
 
 Algoritma CSP biasa menggunakan _flowchart_ untuk dapat mengerti langkah-langkah lebih detil. Berikut ini adalah contoh _flowchart_ yang digunakan untuk mengelola jadwal kuliah:
 
-![flowchart-csp]()
+![flowchart-csp](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/Assets/4q-csp/Annotation%202020-04-13%20003626.png?raw=true)
 
  **Note**:
   Disini saya memakai kode Theodore Tan tanpa modifikasi. Kode tersebut bisa didapatkan [disini](https://github.com/theodoretan/n-queens-CSP)
@@ -262,7 +262,7 @@ Algoritma CSP biasa menggunakan _flowchart_ untuk dapat mengerti langkah-langkah
   
   Saya hanya akan mencoba program tersebut pada jumlah Ratu sebanyak 4. Berikut ini hasil program tersebut:
   
-  ![hasil-4q]()
+  ![hasil-4q](https://github.com/prolifel/TugasKB_F/blob/master/Tugas/Assets/4q-csp/Annotation%202020-04-13%20120752.png?raw=true)
   
   Solusi yang didapatkan oleh program tersebut sama dengan solusi 2 berdasarkan On-Line Encyclopedia of Integer Sequences (OEIS). Hal ini dapat diperiksa pada gambar pada teori Minimax.
   

@@ -8,8 +8,7 @@ Oleh
   * [BFS](#BFS)
   * [DFS](#DFS)
   * [IDS](#IDS)
-  * [Heuristic 1](#Heuristik-1)
-  * [Heuristic 2](#Heuristik-2)
+  * [Heuristic 1 & 2](#Heuristic-1-&-2)
 * [8 Queen](#8-Queen)
   * [Uninformed Search](#Uninformed-Search)
   * [Hill Climbing](#Hill-Climbing)
@@ -151,6 +150,140 @@ Oleh
   2. `hill_climbing_first_choice()` : Fungsi ini sebagai implementasi dari langkah ketiga diatasm yaitu menemukan _cost_ yang paling kecil dari semua status yang ada.
   3. `prettyprint()` : Fungsi ini digunakan untuk print board. 'X' berarti Ratu dan '.' berarti tidak ada ratu.
   4. `Queens()` :  Fungsi digunakan sebagai prosedur utama dari algoritma Hill Climbing, yaitu menghitung konflik antar Ratu, dan jika konflik tersebut sama dengan nol, maka posisi/status Ratu tersebut sukses. Fungsi ini juga digunakan untuk menghitung _moving cost_ dari algoritma Hill Climbing, langkah yang akan diambil, dan waktu random start. Fungsi ini akan direkursif hingga dalam posisi/status sekarang sama dengan nol. _Return value_ dari fungsi ini adalah posisi/status sekarang.
+
+
+#### Heuristic 1 & 2
+
+> _Source Code `heuristic-8puzzle.cpp`:_ [heuristic-8puzzle]()
+
+Dalam program ini diminta untuk menyelesaikan 8 puzzle menggunakan metode heuristic 1 dan 2. Dimana penjelasan heuristic 1 dan 2 ada dibawah. Jika menggunakan heuristic 1 maka yang dilihat yaitu banyaknya grid yang menempati tempat yg salah, tetapi jika menggunakan heuristic 2 maka yang dilihat yaitu total keseluruhan jarak tiap grid yang menempati tempat yang salah terhadap posisi grid yang benar, atau sering disebut dengan manhattan distance.
+
+Jadi dalam penyelesainnya kita mengeluarkan hasil setiap langkah puzzle dengan melihat penempatan grid yang salah kemudian dicari penempatan grid yang benar untuk mencapai final state yang diinginkan.
+
+Program ini menggunakan tree, dengan kode sebagai berikut:
+```
+struct Node { 
+	// stores the parent node of the current node helps in tracing path when the answer is found 
+	Node* parent; 
+	// stores matrix 
+	int mat[N][N]; 
+	// stores blank tile coordinates 
+	int x, y; 
+	// stores the number of misplaced tiles 
+	int cost; 
+	// stores the number of moves so far 
+	int level; 
+}; 
+```
+
+Kemudian setiap langkah pastinya memerlukan node untuk meletakkan grid nya, maka dari itu program dibawah ini untuk meyediakan node setiap langkah.
+```
+Node* newNode(int mat[N][N], int x, int y, int newX, int newY, int level, Node* parent) { 
+	Node* node = new Node; 
+	// set pointer for path to root 
+	node->parent = parent; 
+	// copy data from parent node to current node 
+	memcpy(node->mat, mat, sizeof node->mat); 
+	// move tile by 1 position 
+	swap(node->mat[x][y], node->mat[newX][newY]); 
+	// set number of misplaced tiles 
+	node->cost = INT_MAX; 
+	// set number of moves so far 
+	node->level = level; 
+	// update new blank tile cordinates 
+	node->x = newX; 
+	node->y = newY; 
+	return node; 
+} 
+```
+
+Karena heuristic ini melihat posisi grid yang salah, maka fungsi program dibawah ini untuk menghitung banyak nya angka yang tidak sesuai dengan final state.
+```
+int calculateCost(int initial[N][N], int final[N][N]) { 
+	int count = 0; 
+	for (int i = 0; i < N; i++) 
+		for (int j = 0; j < N; j++) 
+			if (initial[i][j] && initial[i][j] != final[i][j]) 
+				count++; 
+	return count; 
+} 
+```
+
+Untuk bagian dibawah ini adalah pergerakan puzzle yang dimisalkan dengan `botton, left, top, right`
+```
+int row[] = { 1, 0, -1, 0 }; 
+int col[] = { 0, -1, 0, 1 }; 
+```
+
+Setelah itu, fungsi dibawah ini untu megecek apakah posisi grid dimana angka didalamnya sudah sesuai dengan final statenya.
+```
+int isSafe(int x, int y) { 
+	return (x >= 0 && x < N && y >= 0 && y < N); 
+} 
+```
+
+Semua fungsi dijalankan dalam fungsi dibawah ini dimana untuk mengecek solusi penyelesaian menggunakan heuristic dengan initial awal puzzle yang dimasukkan kemudian final state yang diinginkan.
+```
+void solve(int initial[N][N], int x, int y, int final[N][N]) { 
+	// Create a priority queue to store live nodes of search tree; 
+	priority_queue<Node*, std::vector<Node*>, comp> pq; 
+	// create a root node and calculate its cost 
+	Node* root = newNode(initial, x, y, x, y, 0, NULL); 
+	root->cost = calculateCost(initial, final); 
+	// Add root to list of live nodes; 
+	pq.push(root); 
+	// Finds a live node with least cost, add its childrens to list of live nodes and 
+	// finally deletes it from the list. 
+	while (!pq.empty()) { 
+		// Find a live node with least estimated cost 
+		Node* min = pq.top(); 
+		// The found node is deleted from the list of live nodes 
+		pq.pop(); 
+		// if min is an answer node 
+		if (min->cost == 0) { 
+			// print the path from root to destination; 
+			printPath(min); 
+			return; 
+		} 
+		// do for each child of min, max 4 children for a node 
+		for (int i = 0; i < 4; i++) { 
+			if (isSafe(min->x + row[i], min->y + col[i])) { 
+				// create a child node and calculate its cost 
+				Node* child = newNode(min->mat, min->x, 
+							min->y, min->x + row[i], 
+							min->y + col[i], 
+							min->level + 1, min); 
+				child->cost = calculateCost(child->mat, final); 
+
+				// Add child to list of live nodes 
+				pq.push(child); 
+			} 
+		} 
+	} 
+} 
+```
+
+Dalam bahasan ini, fungsi heuristik yang akan kita tampilkan yaitu adalah sebagai berikut.
+- h₁(n) : sebagai banyak grid yang menempati tempat yang salah.
+- h₂(n) : sebagai total keseluruhan jarak tiap grid yang menempati tempat yang salah terhadap posisi grid yang benar, atau sering disebut dengan manhattan distance.
+
+Solusi Penyelesaian dengan fungsi Heuristik Pertama yaitu banyak grid yang menempati tempat yang salah
+
+![8puzzle-heuristic1.1](https://user-images.githubusercontent.com/52326074/77029102-58f6c180-69cd-11ea-9571-7a69fe89de7d.PNG)
+![8puzzle-heuristic1.2](https://user-images.githubusercontent.com/52326074/77029100-585e2b00-69cd-11ea-8d32-03512709f26c.PNG)
+![8puzzle-heuristic1.3](https://user-images.githubusercontent.com/52326074/77029097-572cfe00-69cd-11ea-845e-7e8b50514214.PNG)
+
+Solusi :
+Initial State -> Right -> Up -> Right -> Down -> Down -> Left -> Up -> Right -> Down(Goal)
+
+Solusi Penyelesai dengan fungsi Heuristik Kedua yaitu total keseluruhan jarak tiap grid yang menempati tempat yang salah terhadap posisi grid yang benar, atau sering disebut dengan manhattan distance.
+
+![8puzzle-heuristic2.1](https://user-images.githubusercontent.com/52326074/77029181-8f344100-69cd-11ea-9799-24cda528fdd5.PNG)
+![8puzzle-heuristic2.2](https://user-images.githubusercontent.com/52326074/77029178-8e9baa80-69cd-11ea-9d35-2282c1916e48.PNG)
+![8puzzle-heuristic2.3](https://user-images.githubusercontent.com/52326074/77029175-8d6a7d80-69cd-11ea-8775-2fd302b4ad62.PNG)
+
+Solusi :
+Initial State -> Right -> Up -> Right -> Down -> Down -> Left -> Up -> Right -> Up(Goal)
 
 ----------------------------------------------------------------
 ### Minimax Tictactoe

@@ -8,7 +8,7 @@ Oleh
   * [BFS](#BFS)
   * [DFS](#DFS)
   * [IDS](#IDS)
-  * [Heuristic 1 & 2](#Heuristic-1-&-2)
+  * [Heuristic 1 & 2](#Heuristic-1---2)
 * [8 Queen](#8-Queen)
   * [Uninformed Search](#Uninformed-Search)
   * [Hill Climbing](#Hill-Climbing)
